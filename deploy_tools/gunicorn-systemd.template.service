@@ -1,0 +1,11 @@
+[Unit]
+Description=Gunicore to start tdd
+
+[Service]
+Restart=on-failure
+User=admin
+WorkingDirectory=/home/admin/sites/182.92.106.181/source
+ExecStart=/home/admin/sites/SITES/virtualenv/bin/gunicorn --bind unix:/tmp/SITENAME.socket superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
